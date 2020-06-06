@@ -23,19 +23,18 @@ jobs:
     - uses: actions/checkout@v2
       
     -name:  install NodeJS
-     uses:actions/setup-node@v2-beta
-     with:
-        node-version: 12
-        
-   - uses: borales/actions-yarn@v2.0.0
+    uses:  actions/setup-node@v2-beta
     with:
+        node-version: 12  
+        
+  -uses: borales/actions-yarn@v2.0.0
+  with:
       cmd: install # will run `yarn install` command
       -name: build react app
-       run:  yarn build
-       
-       -name: install surge
-        run:  npm install --global surge
-      -name: deploy to surge
-       run:  surge ./build http://projectreact2020.surge.sh/ ${{secrets.SECRETS_TOKEN}}
+      run: yarn build
+-name: install surge
+run:  npm install --global surge     
+-name: deploy to surge
+run: surge ./build http://projectreact2020.surge.sh/ ${{secrets.SECRETS_TOKEN}}
 
 
