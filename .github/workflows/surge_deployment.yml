@@ -32,9 +32,11 @@ jobs:
       cmd: install # will run `yarn install` command
       -name: build react app
       run: yarn build
--name: install surge
-run:  npm install --global surge     
--name: deploy to surge
-run: surge ./build http://projectreact2020.surge.sh/ ${{secrets.SECRETS_TOKEN}}
+  -name: install surge
+   run: npm install --global surge
+   -name: Deploy Surge
+    run:  surge ./build http://projectreact2020.surge.sh/ ${{secrets.SURGE_TOKEN}}
+         
+ 
 
 
